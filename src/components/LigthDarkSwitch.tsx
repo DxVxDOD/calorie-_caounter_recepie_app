@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
-import sun from '../assets/sun-svgrepo-com (1).svg';
-import moon from '../assets/moon-phases-moon-svgrepo-com.svg';
+import sun from '../assets/ThemeButtonSVG/sun-svgrepo-com (1).svg';
+import moon from '../assets/ThemeButtonSVG/moon-phases-moon-svgrepo-com.svg';
 
 const LigthDarkSwitch = () => {
 	const [theme, setTheme] = useState('dark');
@@ -21,7 +21,7 @@ const LigthDarkSwitch = () => {
 	};
 
 	return (
-		<button onClick={handleSwitch} ><img src={logo}></img></button>
+		<button className=' absolute right-14' onClick={handleSwitch} ><img src={logo}></img></button>
 	);
 };
 
