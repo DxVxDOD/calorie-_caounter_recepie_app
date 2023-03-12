@@ -9,7 +9,7 @@ import Navbar from './components/Navbar';
 
 function App() {
 	return (
-		<div className=' bg-slate-300 m-0 box-border h-screen overflow-hidden flex flex-col'>
+		<div className=' bg-zinc-100 dark:bg-zinc-900 m-0 box-border h-screen overflow-hidden flex flex-col'>
 			<Navbar />
 			<Routes>
 				<Route path='/' element={<Home />} />

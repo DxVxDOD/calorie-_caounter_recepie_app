@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: monospace;
   line-height: 1.5;
-  font-weight: 400;
+  font-weight: 500;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -42,7 +42,7 @@
   .hover_underline_animation {
       display: inline-block;
       position: relative;
-      color: #065f46;
+      color: #4d7c0f;
   }
     
   .hover_underline_animation::after {
@@ -53,7 +53,7 @@
       height: 2px;
       bottom: 0;
       left: 0;
-      background-color: #065f46;
+      background-color: #4d7c0f;
       transform-origin: bottom right;
       transition: transform 0.25s ease-out;
   }
