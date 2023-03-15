@@ -1,4 +1,5 @@
 import React from 'react';
+import CalorieCard from '../components/CalorieCard';
 
 const Home = () => (
 	<div className=' flex flex-col h-full gap-2 align-middle items-center'>
@@ -16,6 +17,9 @@ const Home = () => (
 			placeholder:opacity-60 pl-4 bg-zinc-100 dark:bg-zinc-900 text-zinc-900 dark:text-zinc-200'
 			/>
 			<button type='button' className=' bg-zinc-300 rounded-md shadow-sm dark:shadow-md shadow-zinc-400 dark:shadow-black dark:bg-zinc-700 dark:text-lime-600 absolute pl-2 pr-2 ml-2' >Search</button>
+		</div>
+		<div className=' w-full p-4 flex justify-center flex-wrap gap-5'>
+			<CalorieCard />
 		</div>
 	</div>
 );

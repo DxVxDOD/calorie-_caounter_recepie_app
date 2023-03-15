@@ -19,6 +19,11 @@ const Navbar = () => (
 		>
 			<span className=' text-lime-700 dark:text-lime-600' >About</span>
 		</NavLink>
+		<NavLink to={'/total'}
+			className={'hover_underline_animation dark:hover_underline_animation-dark'}
+		>
+			<span className=' text-lime-700 dark:text-lime-600' >Total Calories</span>
+		</NavLink>
 		<LigthDarkSwitch />
 	</div>
 );
