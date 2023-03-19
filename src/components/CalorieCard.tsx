@@ -1,7 +1,7 @@
 import React from 'react';
-import {type Response} from '../types/myTypes';
+import {type FoodNutritionData} from '../types/myTypes';
 
-const CalorieCard = ({food}: {food: Response}) => (
+const CalorieCard = ({food}: {food: FoodNutritionData}) => (
 	<div className=' w-1/5 flex flex-col gap-1 text-zinc-900 dark:text-zinc-300 bg-zinc-200 dark:bg-zinc-800 p-3 rounded-2xl border-4 border-lime-900 dark:border-lime-700' >
 		<h1
 			className=' text-2xl underline-offset-4 text-center rounded-md border-2 border-zinc-500'

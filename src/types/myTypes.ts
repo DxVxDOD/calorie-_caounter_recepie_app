@@ -1,4 +1,4 @@
-export type Response = {
+export type FoodNutritionData = {
 	name: string;
 	calories: number;
 	serving_size_g: number;

@@ -2,7 +2,7 @@
 import React, {useState, useEffect} from 'react';
 import CalorieCard from '../components/CalorieCard';
 import axios from 'axios';
-import type {Response} from '../types/myTypes';
+import type {FoodNutritionData} from '../types/myTypes';
 
 const Home = () => {
 	const [foods, setFood] = useState([{
@@ -33,7 +33,7 @@ const Home = () => {
 		};
 		axios
 			.request(options)
-			.then(({data}: {data: Response[]}) => {
+			.then(({data}: {data: FoodNutritionData[]}) => {
 				setFood(data);
 			})
 			.catch((error: any) => {
@@ -46,14 +46,12 @@ const Home = () => {
 	}, []);
 
 	return (
-		<div className=' flex flex-col h-full gap-2 align-middle items-center'>
-			<h1 className=' text-lime-700 dark:text-lime-600 text-5xl text-center mt-28'
-			>
+		<div className='flex flex-col h-full gap-2 align-middle items-center'>
+			<h1 className=' text-lime-700 dark:text-lime-600 text-5xl text-center mt-28'>
 			Calorie Calculator
 			</h1>
 			<h2
-				className=' text-lime-900 dark:text-lime-700 text-xl text-center'
-			>
+				className=' text-lime-900 dark:text-lime-700 text-xl text-center'>
 		Search for the values of your favoutite foods</h2>
 			<div className=' border-solid border-2 rounded-md w-1/2 border-lime-700 dark:border-lime-900 mt-10' >
 				<input
@@ -64,8 +62,7 @@ const Home = () => {
 					placeholder='Chicken breast'
 					type='text'
 					className=' border-none outline-none rounded-md w-full placeholder-zinc-900 dark:placeholder-zinc-100
-				placeholder:opacity-60 pl-4 bg-zinc-100 dark:bg-zinc-900 text-zinc-900 dark:text-zinc-200'
-				/>
+				placeholder:opacity-60 pl-4 bg-zinc-100 dark:bg-zinc-900 text-zinc-900 dark:text-zinc-200'/>
 				<button
 					onClick={() => {
 						searchFood(searchTerm);
