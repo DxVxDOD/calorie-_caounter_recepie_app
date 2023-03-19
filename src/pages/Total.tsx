@@ -4,7 +4,7 @@ import {type FoodNutritionData} from '../types/myTypes';
 
 const Total = () => {
 	const location = useLocation();
-	const calories = location.state.calories;
+	const {calories} = location.state;
 
 	return (
 		<div>{calories}</div>

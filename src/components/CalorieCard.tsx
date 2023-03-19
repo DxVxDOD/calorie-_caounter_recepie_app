@@ -1,12 +1,14 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {type FoodNutritionData} from '../types/myTypes';
 import {useNavigate} from 'react-router-dom';
 
 const CalorieCard = ({food}: {food: FoodNutritionData}) => {
 	const navigateFoodData = useNavigate();
-	navigateFoodData('/total', {state: {
-		calories: food.calories,
-	}});
+	const handleClicks = () => {
+		navigateFoodData('/total', {state: {
+			calories: food.calories,
+		}});
+	};
 
 	return (
 		<div className=' w-1/5 flex flex-col p-2 text-zinc-900 dark:text-zinc-300 bg-zinc-200 dark:bg-zinc-800
@@ -33,6 +35,7 @@ const CalorieCard = ({food}: {food: FoodNutritionData}) => {
 			</div>
 			<div className='flex justify-center gap-5 w-full p-3'>
 				<button
+					onClick={handleClicks}
 					className='bg-zinc-100 dark:bg-zinc-700 w-full p-1
 				rounded-md dark:shadow-md dark:shadow-black shadow-md shadow-zinc-700
 				 hover:bg-zinc-200 dark:hover:bg-zinc-600 active:translate-y-1' >
