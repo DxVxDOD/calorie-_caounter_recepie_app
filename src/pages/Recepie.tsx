@@ -63,7 +63,9 @@ const Recepie = () => {
 						searchRecepie(searchTerm);
 					}}
 					type='button'
-					className=' bg-zinc-300 rounded-md shadow-sm dark:shadow-md shadow-zinc-400 dark:shadow-black dark:bg-zinc-700 dark:text-lime-600 absolute pl-2 pr-2 ml-2' >
+					className='rounded-md shadow-sm dark:shadow-md shadow-zinc-400 dark:shadow-black
+					dark:bg-zinc-700 bg-zinc-300 dark:text-lime-600 absolute pl-2 pr-2 ml-2
+					hover:bg-zinc-200 dark:hover:bg-zinc-600 active:translate-y-1' >
             Search
 				</button>
 			</div>
