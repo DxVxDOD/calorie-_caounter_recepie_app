@@ -5,7 +5,6 @@ import Recepie from './pages/Recepie';
 import About from './pages/About';
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
-import Total from './pages/Total';
 
 function App() {
 	return (
@@ -15,7 +14,6 @@ function App() {
 				<Route path='/' element={<Home />} />
 				<Route path='/about' element={<About />} />
 				<Route path='/recepie' element={<Recepie />} />
-				<Route path='/total' element={<Total />} />
 			</Routes>
 			<Footer />
 		</div>
