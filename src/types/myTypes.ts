@@ -12,3 +12,10 @@ export type FoodNutritionData = {
 	fiber_g: number;
 	sugar_g: number;
 };
+
+export type RecepieData = {
+	title: string;
+	ingredients: string;
+	servings: string;
+	instructions: string;
+};

@@ -46,13 +46,14 @@ const Home = () => {
 	}, []);
 
 	return (
-		<div className='flex flex-col h-full gap-2 align-middle items-center'>
+		<div className=' flex flex-col h-full gap-2 align-middle items-center'>
 			<h1 className=' text-lime-700 dark:text-lime-600 text-5xl text-center mt-28'>
 			Calorie Calculator
 			</h1>
 			<h2
 				className=' text-lime-900 dark:text-lime-700 text-xl text-center'>
-		Search for the values of your favoutite foods</h2>
+			Search for the values of your favoutite foods
+			</h2>
 			<div className=' border-solid border-2 rounded-md w-1/2 border-lime-700 dark:border-lime-900 mt-10' >
 				<input
 					onChange={e => {
@@ -80,7 +81,7 @@ const Home = () => {
 						))}
 					</div>
 				) : (
-					<div className='empty' >
+					<div className='' >
 						<h1>No Movies found !</h1>
 					</div>
 				)
