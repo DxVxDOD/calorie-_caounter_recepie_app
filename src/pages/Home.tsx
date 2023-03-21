@@ -3,9 +3,10 @@ import React, {useState, useEffect} from 'react';
 import CalorieCard from '../components/CalorieCard';
 import axios from 'axios';
 import type {FoodNutritionData} from '../types/myTypes';
+import TotalNutrientsCard from '../components/TotalNutrientsCard';
 
 const Home = () => {
-	const [foods, setFood] = useState([{
+	const [foods, setFood] = useState<FoodNutritionData[]>([{
 		name: '',
 		calories: 0,
 		serving_size_g: 0,
@@ -42,44 +43,62 @@ const Home = () => {
 	};
 
 	useEffect(() => {
-		searchFood('Chicken breast');
-	}, []);
+		searchFood('Chicken breast, sausage, bacon, eggs, duck, pig, kefir');
+	}, [searchTerm]);
 
 	return (
 		<div className=' flex flex-col h-full gap-2 align-middle items-center'>
-			<h1 className=' text-lime-700 dark:text-lime-600 text-5xl text-center mt-28'>
-			Calorie Calculator
-			</h1>
-			<h2
-				className=' text-lime-900 dark:text-lime-700 text-xl text-center'>
-			Search for the values of your favoutite foods
-			</h2>
-			<div className=' border-solid border-2 rounded-md w-1/2 border-lime-700 dark:border-lime-900 mt-10' >
-				<input
-					onChange={e => {
-						setSearchTerm(e.target.value);
-					}}
-					value={searchTerm}
-					placeholder='Chicken breast'
-					type='text'
-					className=' border-none outline-none rounded-md w-full placeholder-zinc-900 dark:placeholder-zinc-100
-				placeholder:opacity-60 pl-4 bg-zinc-100 dark:bg-zinc-900 text-zinc-900 dark:text-zinc-200'/>
-				<button
-					onClick={() => {
-						searchFood(searchTerm);
-					}}
-					type='button'
-					className='rounded-md shadow-sm dark:shadow-md shadow-zinc-400 dark:shadow-black
-					dark:bg-zinc-700 bg-zinc-300 dark:text-lime-600 absolute pl-2 pr-2 ml-2
-					hover:bg-zinc-200 dark:hover:bg-zinc-600 active:translate-y-1' >
-					Search
-				</button>
+			<div className='flex w-1/2 justify-evenly'>
+				<TotalNutrientsCard foods={foods} />
+				<div className='flex flex-col w-full items-center'>
+					<h1 className=' text-lime-700 dark:text-lime-600 text-5xl text-center mt-28'>
+					Calorie Calculator
+					</h1>
+					<h2
+						className=' text-lime-900 dark:text-lime-700 text-xl text-center'>
+						Search for the values of your favoutite foods
+					</h2>
+					<div className=' border-solid border-2 rounded-md w-full border-lime-700 dark:border-lime-900 mt-10' >
+						<input
+							onChange={e => {
+								setSearchTerm(e.target.value);
+							}}
+							value={searchTerm}
+							placeholder='Chicken breast'
+							type='text'
+							className=' border-none outline-none rounded-md w-full placeholder-zinc-900 dark:placeholder-zinc-100
+							placeholder:opacity-60 pl-4 bg-zinc-100 dark:bg-zinc-900 text-zinc-900 dark:text-zinc-200'/>
+						<button
+							onClick={() => {
+								searchFood(searchTerm);
+							}}
+							type='button'
+							className='rounded-md shadow-sm dark:shadow-md shadow-zinc-400 dark:shadow-black
+							dark:bg-zinc-700 bg-zinc-300 dark:text-lime-600 absolute pl-2 pr-2 ml-2
+							hover:bg-zinc-200 dark:hover:bg-zinc-600 active:translate-y-1' >
+							Search
+						</button>
+					</div>
+				</div>
 			</div>
-			<div className=' w-full p-4 flex justify-center flex-wrap gap-5'>
+			<div
+				className='w-full mt-5 pl-4 mb-6'>
 				{foods?.length > 0 ? (
-					<div className='container' >
+					<div className='flex flex-wrap gap-5 justify-center' >
 						{foods.map(food => (
-							<CalorieCard key={food.name} food={food} />
+							<div
+								key={food.name}
+								className='flex justify-center flex-col p-2 text-zinc-900 dark:text-zinc-300 bg-zinc-200 dark:bg-zinc-800
+								rounded-2xl border-4 border-lime-900 dark:border-lime-700' >
+								<CalorieCard food={food} />
+								<button
+									className='bg-zinc-100 dark:bg-zinc-700 mr-2 ml-2 p-1
+									rounded-md border-2 border-zinc-400 dark:border-zinc-900
+									dark:shadow-md dark:shadow-black shadow-md shadow-zinc-700
+					 				hover:bg-zinc-200 dark:hover:bg-zinc-600 active:translate-y-1'>
+									ADD
+								</button>
+							</div>
 						))}
 					</div>
 				) : (
