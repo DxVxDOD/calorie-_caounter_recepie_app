@@ -4,6 +4,7 @@ import CalorieCard from '../components/CalorieCard';
 import axios from 'axios';
 import type {FoodNutritionData} from '../types/myTypes';
 import TotalNutrientsCard from '../components/TotalNutrientsCard';
+import ErrorData from '../components/ErrorData';
 
 const Home = () => {
 	const [foods, setFood] = useState<FoodNutritionData[]>([{
@@ -43,8 +44,8 @@ const Home = () => {
 	};
 
 	useEffect(() => {
-		searchFood('Chicken breast, sausage, bacon, eggs, duck, pig, kefir');
-	}, [searchTerm]);
+		searchFood('Chicken breast');
+	}, []);
 
 	return (
 		<div className=' flex flex-col h-full gap-2 align-middle items-center'>
@@ -91,20 +92,11 @@ const Home = () => {
 								className='flex justify-center flex-col p-2 text-zinc-900 dark:text-zinc-300 bg-zinc-200 dark:bg-zinc-800
 								rounded-2xl border-4 border-lime-900 dark:border-lime-700' >
 								<CalorieCard food={food} />
-								<button
-									className='bg-zinc-100 dark:bg-zinc-700 mr-2 ml-2 p-1
-									rounded-md border-2 border-zinc-400 dark:border-zinc-900
-									dark:shadow-md dark:shadow-black shadow-md shadow-zinc-700
-					 				hover:bg-zinc-200 dark:hover:bg-zinc-600 active:translate-y-1'>
-									ADD
-								</button>
 							</div>
 						))}
 					</div>
 				) : (
-					<div className='' >
-						<h1>No Movies found !</h1>
-					</div>
+					<ErrorData/>
 				)
 				}
 			</div>

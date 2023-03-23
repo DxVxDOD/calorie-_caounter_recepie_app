@@ -1,12 +1,17 @@
 import React, {useEffect, useState} from 'react';
 import {type FoodNutritionData} from '../types/myTypes';
+import ErrorData from './ErrorData';
 
 const TotalNutrientsCard = ({foods}: {foods: FoodNutritionData[]}) => {
 	const [caloeies, setCaloeies] = useState(0);
 	useEffect(() => {
-		const totalCaloriesArray: number[] = foods.map(food => food.calories);
-		const totalCalories = totalCaloriesArray.reduce((a, b) => a + b);
-		setCaloeies(totalCalories);
+		if (foods.length > 0) {
+			const totalCaloriesArray: number[] = foods.map(food => food.calories);
+			const totalCalories = totalCaloriesArray.reduce((a, b) => a + b);
+			setCaloeies(totalCalories);
+		} else {
+			console.log('error');
+		}
 	}, [foods]);
 
 	return (
